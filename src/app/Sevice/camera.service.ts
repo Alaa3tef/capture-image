@@ -379,7 +379,6 @@ private checkCVInitialization(resolve: () => void, reject: (error: any) => void)
             });
             return;
           }
-  
           // Load the cascade for face, eyes, and nose detection
           Promise.all([
             this.loadCascade('haarcascade_frontalface_default.xml', '/assets/haarcascade_frontalface_default.xml'),
