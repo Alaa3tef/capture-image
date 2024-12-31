@@ -1,0 +1,49 @@
+<div class="container">
+    <!--  <input type="file" (change)="fileChangeEvent($event)" /> -->
+     <div class="row" style="width: 100%;">
+       <div class="col-md-12" >
+
+         <div class="card p-3" >
+           <div class="text-end">
+             <!-- <h6 class="">تعديل المعلمين</h6> -->
+           </div>
+           <div class="box-image">
+             <!-- Show video when image is not captured -->
+              @if(!croppedImage ){
+             <video #video autoplay  style="width: 100%; height: auto;"></video>
+             <canvas #canvas style="display:none;"></canvas>
+              }
+ 
+             <!-- Image Cropper to display captured image -->
+              @if(croppedImage){
+
+                 <!-- [aspectRatio]="4 / 3"
+                [canvasWidth]="500"
+                [canvasHeight]="400"
+                [resizeToWidth]="500" -->
+                <div>
+                  <image-cropper
+                    [imageBase64]="croppedImage"
+                    [maintainAspectRatio]="false"
+                    [transform]="transform"
+                    format="png"
+                    [roundCropper]="false"
+                    (imageCropped)="imageCropped($event)"
+                    (imageLoaded)="imageLoaded($event)"
+                    (cropperReady)="cropperReady()"
+                    (loadImageFailed)="loadImageFailed()">
+                  </image-cropper>
+               </div>
+           }
+           </div>
+           @if(isCroppedValid==false){
+            <div  class=" d-flex justify-content-center mt-3 text-danger alert-danger" >
+                <p>*.The cropped image is invalid. Please try again</p>
+              </div>
+           }
+           
+           <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5">
+             <button type="button" class="btn " style="background-color: #009688;color: white;"  (click)="openCamera()">الكاميرا</button>
+             <button type="button" class="btn" style="background-color: #009688;color: white;"   (click)="captureImage()">قص</button>
+           </div>
+           
