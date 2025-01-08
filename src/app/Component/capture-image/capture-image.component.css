@@ -12,3 +12,24 @@
     align-items: center;
     justify-content: center;
   }
+ 
+  
+  video {
+    width: 100%;
+    height: auto;
+  }
+  
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+  }
+  .camera-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Adjust based on desired size */
+    margin: auto;
+  }

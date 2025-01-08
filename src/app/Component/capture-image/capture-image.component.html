@@ -1,26 +1,20 @@
 <div class="container">
-    <!--  <input type="file" (change)="fileChangeEvent($event)" /> -->
      <div class="row" style="width: 100%;">
        <div class="col-md-12" >
 
          <div class="card p-3" >
            <div class="text-end">
-             <!-- <h6 class="">تعديل المعلمين</h6> -->
            </div>
            <div class="box-image">
              <!-- Show video when image is not captured -->
               @if(!croppedImage ){
-             <video #video autoplay  style="width: 100%; height: auto;"></video>
-             <canvas #canvas style="display:none;"></canvas>
+                <div class="video-container">
+             <video #video autoplay  style="width: 100%; height: auto;" ></video>
+             <canvas #canvasOverlay style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+            </div>
               }
  
-             <!-- Image Cropper to display captured image -->
               @if(croppedImage){
-
-                 <!-- [aspectRatio]="4 / 3"
-                [canvasWidth]="500"
-                [canvasHeight]="400"
-                [resizeToWidth]="500" -->
                 <div>
                   <image-cropper
                     [imageBase64]="croppedImage"
